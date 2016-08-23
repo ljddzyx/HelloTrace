@@ -39,7 +39,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     /**
      * 鹰眼服务ID，开发者创建的鹰眼服务对应的服务ID
      */
-    protected static long serviceId = 0;
+    protected static long serviceId = 124012;
 
     /**
      * 轨迹服务类型（0 : 不建立socket长连接， 1 : 建立socket长连接但不上传位置数据，2 : 建立socket长连接并上传位置数据）
@@ -91,7 +91,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         client.setLocationMode(LocationMode.High_Accuracy);
 
         // 初始化entity标识
-        entityName = "myTrace";
+        //entityName = "myTrace";
+        entityName = getImei(this);
 
         // 初始化轨迹服务
         trace = new Trace(getApplicationContext(), serviceId, entityName, traceType);
